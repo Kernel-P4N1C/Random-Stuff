@@ -9,4 +9,6 @@ with open('if_out.txt', 'r') as f:
   ip_address = re.findall(ip_rule, content)
   interface = re.findall(interface_rule, content)
   for i in range(len(ip_address)):
-    print(interface[i] + ": " + ip_address[i][4:])
+    print(interface[i].strip() + ": " + ip_address[i][4:])
+  f.close()
+subprocess.call("rm if_out.txt", shell=True)
